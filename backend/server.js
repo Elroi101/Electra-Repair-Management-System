@@ -32,11 +32,10 @@ const saltrounds = 10;
 const app = express();
 const port = 3000;
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  }),
+app.use(cors({
+  origin: "https://electra-repair.vercel.app",
+  credentials: true,
+}));
 );
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
