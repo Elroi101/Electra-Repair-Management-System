@@ -33,7 +33,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-  origin: "https://electra-repair-management-system.vercel.app",
+  origin: "https://electra-repair-management-system.vercel.app/",
   credentials: true,
 }));
 
