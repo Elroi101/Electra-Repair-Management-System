@@ -5,6 +5,7 @@ import StatCards from "./StatCards";
 import Toolbar from "./Toolbar";
 import AddRepairModal from "./AddRepairModal";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingJob, setEditingJob] = useState(null);
@@ -12,11 +13,11 @@ const Dashboard = () => {
   const handleSave = async (data) => {
     try {
       if (editingJob) {
-        await axios.patch("http://localhost:3000/updateModal", data, {
+        await axios.patch(`${API_URL}/updateModal`, data, {
           withCredentials: true,
         });
       } else {
-        await axios.post("http://localhost:3000/modal", data, {
+        await axios.post(`${API_URL}modal`, data, {
           withCredentials: true,
         });
       }
