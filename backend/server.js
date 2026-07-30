@@ -35,10 +35,7 @@ const db = new pg.Pool({
   port: process.env.DB_PORT,
 });
 
-<<<<<<< HEAD
 const saltrounds = 10;
-
-=======
 
 const app = express();
 const port = 3000;
