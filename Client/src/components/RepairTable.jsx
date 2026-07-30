@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 const RepairTable = ({ onRowClick, status, search }) => {
   let [allData, setAllData] = useState([]);
-
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   async function getData(datan) {
     try {
       const response = await axios.post(
-        "http://localhost:3000/allUsers",
+        `${API_URL}/allUsers`,
         {
           status: datan,
         },
