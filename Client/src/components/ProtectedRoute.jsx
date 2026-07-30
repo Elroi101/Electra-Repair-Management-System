@@ -3,11 +3,12 @@ import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 const ProtectedRoute = ({ children }) => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   const [authStatus, setAuthStatus] = useState("checking"); // "checking" | "authed" | "unauthed"
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/me", { withCredentials: true })
+      .get(`${API_URL}/me`, { withCredentials: true })
       .then(() => setAuthStatus("authed"))
       .catch(() => setAuthStatus("unauthed"));
   }, []);
