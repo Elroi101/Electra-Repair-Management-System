@@ -4,11 +4,12 @@ import axios from "axios";
 
 const AdminNavbar = () => {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/logout",
+        `${API_URL}/logout`,
         {},
         {
           withCredentials: true,
