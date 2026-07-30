@@ -35,34 +35,7 @@ const db = new pg.Pool({
   port: process.env.DB_PORT,
 });
 
-let admin_user = {
-  name: "test",
-  email: "test@gmail.com",
-  password: "testin",
-  role: "Administrator",
-};
 const saltrounds = 10;
-
-bcrypt.hash(admin_user.password, saltrounds, async (err, hash) => {
-  if (err) {
-    console.log(err);
-  }
-  try {
-    const res = await db.query("SELECT name FROM user_access WHERE email=$1", [
-      admin_user.email,
-    ]);
-    if (res.rowCount != 0) {
-      console.log("there is an existing information");
-    } else {
-      await db.query(
-        "INSERT INTO user_access (name,email,password,role) VALUES ($1,$2,$3,$4)",
-        [admin_user.name, admin_user.email, hash, admin_user.role],
-      );
-    }
-  } catch (er) {
-    console.log(er.message);
-  }
-});
 
 const app = express();
 const port = 3000;
