@@ -1,4 +1,4 @@
-# ⚡ Electra Repair Management System
+# Electra Repair Management System
 
 A modern full-stack repair shop management platform that simplifies the entire repair workflow—from customer appointment booking to repair tracking and administrative management.
 
@@ -6,7 +6,7 @@ Electra enables customers to submit repair requests through an intuitive interfa
 
 ---
 
-## 📌 Overview
+## Overview
 
 Electra was built to digitize and streamline the workflow of an electronics repair business. Instead of relying on manual records, phone calls, or paper schedules, the system centralizes customer management, appointment booking, repair tracking, and administrative operations into one responsive web application.
 
@@ -14,7 +14,7 @@ Whether you're managing a small repair shop or planning to extend the system int
 
 ---
 
-# ✨ Features
+# Features
 
 ## Customer Features
 
@@ -76,7 +76,7 @@ Whether you're managing a small repair shop or planning to extend the system int
 
 ---
 
-# 🏗 Architecture
+# Architecture
 
 ```
 React Frontend
@@ -99,7 +99,7 @@ Admin Data
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 ```
 Electra-Repair-Management-System
@@ -129,7 +129,7 @@ Electra-Repair-Management-System
 
 ---
 
-# 🚀 Getting Started
+# Getting Started
 
 ## Prerequisites
 
@@ -152,7 +152,7 @@ cd Electra-Repair-Management-System
 
 ---
 
-# 📦 Install Dependencies
+# Install Dependencies
 
 ## Frontend
 
@@ -174,7 +174,7 @@ npm install
 
 ---
 
-# ⚙ Environment Variables
+# Environment Variables
 
 Create a `.env` file inside the server directory.
 
@@ -200,7 +200,7 @@ EMAIL_PASS=your_password
 
 ---
 
-# 🗄 Database Setup
+# Database Setup
 
 Create a PostgreSQL database.
 
@@ -214,7 +214,7 @@ Import the SQL schema included with the project (or create the required tables m
 
 ---
 
-# ▶ Running the Application
+# Running the Application
 
 ## Start the Backend
 
@@ -248,7 +248,7 @@ http://localhost:5173
 
 ---
 
-# 🔐 Authentication
+# Authentication
 
 Electra uses:
 
@@ -260,7 +260,7 @@ Electra uses:
 
 ---
 
-# 📡 API Overview
+# API Overview
 
 ## Authentication
 
@@ -293,7 +293,7 @@ Electra uses:
 
 ---
 
-# 📷 Screenshots
+# Screenshots
 
 ## Homepage
 
@@ -345,7 +345,7 @@ screenshots/repair-management.png
 
 ---
 
-# 🔮 Future Improvements
+# Future Improvements
 
 - Customer dashboard
 - Repair timeline tracking
@@ -360,7 +360,7 @@ screenshots/repair-management.png
 
 ---
 
-# 🤝 Contributing
+# Contributing
 
 Contributions are welcome!
 
@@ -388,13 +388,13 @@ git push origin feature/new-feature
 
 ---
 
-# 📄 License
+# License
 
 This project is licensed under the MIT License.
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Elroi101**
 
@@ -402,7 +402,7 @@ GitHub: https://github.com/Elroi101
 
 ---
 
-# ⭐ Support
+# Support
 
 If you found this project useful, consider giving it a **⭐ Star** on GitHub. It helps others discover the project and supports future development.
 
