@@ -13,7 +13,9 @@ dotenv.config();
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 465,
+  port: 587,
+  secure: false,
+  requireTLS: true,
   auth: {
     // eslint-disable-next-line no-undef
     user: process.env.BREVO_SMTP_LOGIN,
