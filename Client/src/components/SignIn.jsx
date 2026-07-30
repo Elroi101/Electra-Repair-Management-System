@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
-
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   async function submit_handler(user_info) {
     try {
       const response = await axios.post(
-        "http://localhost:3000/submit",
+        `${API_URL}/submit`,
         user_info,
         {
           withCredentials: true,
