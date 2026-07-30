@@ -13,11 +13,11 @@ const StatCard = ({ label, value }) => {
     </div>
   );
 };
-
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const StatCards = () => {
   async function calc_active_repairs() {
     try {
-      let response = await axios.get("http://localhost:3000/cards_info", {
+      let response = await axios.get(`${API_URL}/cards_info`, {
         withCredentials: true,
       });
       return response.data;
