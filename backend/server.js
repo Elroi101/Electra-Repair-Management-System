@@ -8,7 +8,7 @@ import nodemailer from "nodemailer";
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import session from "express-session";
-import axios from "axios;
+
 
 dotenv.config();
 
