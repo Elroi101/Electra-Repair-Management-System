@@ -53,16 +53,20 @@ app.use(
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("trust proxy", 1); 
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: true,      
-    sameSite: "none",   
-    httpOnly: true,
-  },
-}));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: true,    
+      sameSite: "none",  
+      httpOnly: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000, // optional: 7-day session
+    },
+  }),
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
