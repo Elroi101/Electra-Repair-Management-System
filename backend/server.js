@@ -11,18 +11,24 @@ import session from "express-session";
 
 dotenv.config();
 
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
-  requireTLS: true,
-  auth: {
-    // eslint-disable-next-line no-undef
-    user: process.env.BREVO_SMTP_LOGIN,
-    // eslint-disable-next-line no-undef
-    pass: process.env.BREVO_SMTP_KEY,
-  },
-});
+async function sendEmailViaBrevo({ to, subject, text, replyTo }) {
+  await axios.post(
+    "https://api.brevo.com/v3/smtp/email",
+    {
+      sender: { email: process.env.SENDER_EMAIL, name: "FixIt Repairs" },
+      to: [{ email: to }],
+      replyTo: replyTo ? { email: replyTo } : undefined,
+      subject,
+      textContent: text,
+    },
+    {
+      headers: {
+        "api-key": process.env.BREVO_API_KEY,
+        "Content-Type": "application/json",
+      },
+    },
+  );
+}
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -145,9 +151,8 @@ app.post("/contact", async (req, res) => {
       .json({ error: "Name, email, and message are required" });
   }
 
-  try {
-    await transporter.sendMail({
-      from: `"Electra Repairs" <${process.env.SENDER_EMAIL}>`,
+try {
+    await sendEmailViaBrevo({
       to: process.env.SHOP_EMAIL,
       replyTo: email,
       subject: `New contact form message from ${name}`,
@@ -155,7 +160,7 @@ app.post("/contact", async (req, res) => {
     });
     res.json({ success: true });
   } catch (er) {
-    console.log(er);
+    console.log(er?.response?.data || er);
     res.status(500).json({ error: "Failed to send message" });
   }
 });
