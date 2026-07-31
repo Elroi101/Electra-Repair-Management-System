@@ -8,7 +8,7 @@ import nodemailer from "nodemailer";
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import session from "express-session";
-
+import axios from "axios";
 
 dotenv.config();
 
@@ -41,10 +41,14 @@ const saltrounds = 10;
 const app = express();
 const port = 3000;
 
-app.use(cors({
-  origin: "https://electra-repair-management-system.vercel.app",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin:
+      "https://electra-repair-management-system.vercel.app" ||
+      "http://localhost:5173",
+    credentials: true,
+  }),
+);
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -152,7 +156,7 @@ app.post("/contact", async (req, res) => {
       .json({ error: "Name, email, and message are required" });
   }
 
-try {
+  try {
     await sendEmailViaBrevo({
       to: process.env.SHOP_EMAIL,
       replyTo: email,
