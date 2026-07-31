@@ -9,6 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingJob, setEditingJob] = useState(null);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   const handleSave = async (data) => {
     try {
@@ -21,6 +22,7 @@ const Dashboard = () => {
           withCredentials: true,
         });
       }
+      setRefreshKey((prev) => prev + 1); // trigger RepairTable to refetch
     } catch (er) {
       console.log(er);
     }
@@ -56,6 +58,7 @@ const Dashboard = () => {
           setIsModalOpen(true);
         }}
         onRowClick={handleRowClick}
+        refreshKey={refreshKey}
       />
 
       <AddRepairModal

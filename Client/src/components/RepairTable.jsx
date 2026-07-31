@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-const RepairTable = ({ onRowClick, status, search }) => {
+const RepairTable = ({ onRowClick, status, search, refreshKey }) => {
   let [allData, setAllData] = useState([]);
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
   async function getData(datan) {
@@ -28,7 +28,7 @@ const RepairTable = ({ onRowClick, status, search }) => {
 
   useEffect(() => {
     load(status);
-  }, [status]);
+  }, [status, refreshKey]);
 
   allData = allData.filter((i) =>
     (i.name || "").toLowerCase().includes((search || "").toLowerCase()),

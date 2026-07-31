@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Search, Plus, ChevronDown } from "lucide-react";
 import RepairTable from "./RepairTable";
 
-const Toolbar = ({ onNewRepairClick, onRowClick }) => {
+const Toolbar = ({ onNewRepairClick, onRowClick, refreshKey }) => {
   const [statusFilter, setStatusFilter] = useState("All statuses");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -77,6 +77,7 @@ const Toolbar = ({ onNewRepairClick, onRowClick }) => {
         onRowClick={onRowClick}
         status={statusFilter}
         search={searchQuery} // Pass search value to table for filtering
+        refreshKey={refreshKey}
       />
     </>
   );
