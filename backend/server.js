@@ -52,6 +52,7 @@ app.use(
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
+app.set("trust proxy", 1); 
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
