@@ -52,13 +52,16 @@ app.use(
 
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "my-secret",
-    resave: false,
-    saveUninitialized: false,
-  }),
-);
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: true,      
+    sameSite: "none",   
+    httpOnly: true,
+  },
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
