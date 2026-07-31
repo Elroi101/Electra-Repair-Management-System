@@ -17,7 +17,7 @@ const Dashboard = () => {
           withCredentials: true,
         });
       } else {
-        await axios.post(`${API_URL}modal`, data, {
+        await axios.post(`${API_URL}/modal`, data, {
           withCredentials: true,
         });
       }
